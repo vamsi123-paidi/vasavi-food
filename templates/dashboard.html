@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard | Vasavi Canteen</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+
+<body class="bg-secondary">
+<div class="header sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand" href="{{url_for('index_after_login')}}">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+           </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="my-navbar">
+                <ul class="navbar-nav">
+                    <div class='nav-name text-info'>
+                        Hi,{{ full_name }}
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('dashboard') }}">
+                            <i class="fas fa-user text-primary"></i>Dashboard
+                        </a>
+                    </li>
+                    <div class="nav-vl"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index_after_login') }}">
+                            <i class="fas fa-home text-primary"></i>Home
+                        </a>
+                    </li>
+                    <div class="nav-vl"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">
+                            <i class="fas fa-sign-out-alt text-danger"></i>Logout
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div id="loading">
+    </div>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb py-2">
+            <li class="breadcrumb-item">
+                <a href="{{url_for('index_after_login')}}">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                Dashboard
+            </li>
+        </ol>
+    </nav>
+
+<div class="my-profile page-container">
+    <h1>My Profile</h1>
+    <div class="row profile-container">
+        <div class="col-md-3 d-none d-md-block profile-img-container">
+            <i class="fas fa-user profile-img"></i>
+        </div>
+        <div class="col-md-9 profile-details">
+            <div class="row no-gutters justify-content-between align-items-end">
+                <div class="profile">
+                    <div class="name">
+                        <span class="text-info">Name:</span>
+                        {{ full_name }}
+                    </div>
+                    <div class="email">
+                        <span class="text-info">Email:</span>
+                        {{ session['email'] }}
+                    </div>
+                    <div class="phone">
+                        <span class="text-info">Phone Number:</span>
+                        {{ phone }}
+                    </div>
+                    <div class="college">
+                        <span class="text-info">College ID:</span>
+                        {{ college_id }}
+                    </div>
+                </div>
+                <div class="edit">
+                    <a href="{{ url_for('edit_profile') }}" class="edit-profile text-success">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="footer">
+    <div class="page-container footer-container">
+        <div class="footer-cities">
+            <div class="footer-city">
+                <a href="{{url_for('property_list2_after_login')}}">Vasavi Tiffins</a>
+            </div>
+            <div class="footer-city">
+                <a href="{{url_for('property_list1_after_login')}}">Vasavi Food Court</a>
+            </div>
+            <div class="footer-city">
+                <a href="{{url_for('property_list3_after_login')}}">Fruit Juice And Milk Shakes</a>
+            </div>
+            <div class="footer-city">
+                
+                <a href="{{url_for('property_list4_after_login')}}">Tea And Snacks</a>
+            </div>
+            <div class="footer-city">
+                <a href="{{url_for('property_list5_after_login')}}">Pizzas And Bakery</a>
+            </div>
+        </div>
+        <div class="footer-copyright">© 2023 Copyright Vasavi Food Canteen </div>
+    </div>
+</div>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>list of Vasavi Canteen | Vasavi Canteen</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/property_list.css') }}">
+</head>
+
+<body>
+    <div class="header sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand" href="{{url_for('index_after_login')}}">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+           </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="my-navbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('dashboard') }}">
+                            <i class="fas fa-user text-primary"></i>Dashboard
+                        </a>
+                    </li>
+                    <div class="nav-vl"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index_after_login') }}">
+                            <i class="fas fa-home text-primary"></i>Home
+                        </a>
+                    </li>
+                    <div class="nav-vl"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">
+                            <i class="fas fa-sign-out-alt text-danger"></i>Logout
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div id="loading">
+    </div>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb py-2">
+            <li class="breadcrumb-item">
+                <a href="{% if 'email' in session %}{{ url_for('index_after_login') }}{% else %}{{ url_for('index') }}{% endif %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                Fruit Juice And Milk Shakes
+            </li>
+        </ol>
+    </nav>
+
+    <div class="page-container">
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/coconut.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Coconut</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 30.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice1')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/karbuja.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Karbuja</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 40.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice2')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>    
+            
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/banana.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Banana</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 40.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice3')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/pineapple.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Pineapple</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 40.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice4')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/grape.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Grape</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 40.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice5')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/orange.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Orange</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 40.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice6')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/sapota.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Sapota</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 40.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice7')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/promogranate.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Pomogranate</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 50.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice8')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/water melon.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Watermelon</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 30.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice9')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/apple.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Apple</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 50.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice10')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/carrot.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Carrot</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 40.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice11')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/beetroot.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Beetroot</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 40.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice12')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/sugarcain.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Sugarcain</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 20.00/- 70.00/L</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice13')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/chocolate.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Chocolate</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 60.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice14')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/butterscotch.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Butterscotch</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 60.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice15')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/blackcurrent.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                    <div class="detail-container">
+                        <div class="property-name">Blackcurrent</div>
+                        <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                    </div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 60.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice16')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/strawberry.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Strawberry</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 60.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice17')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/kaju.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Kaju</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 60.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice18')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/orio.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Orio</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 80.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice19')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="property-card row">
+            <div class="image-container col-md-4">
+                <img src="{{ url_for('static', filename='img/properties3/badamshake.jpg') }}" />
+            </div>
+            <div class="content-container col-md-8">
+                <div class="row no-gutters justify-content-between">
+                    <div class="star-container" title="5.0">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="interested-container">
+                        <i class="is-interested-image far fa-heart"></i>
+                        <div class="interested-text">
+                            <span class="interested-user-count">6</span> interested
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <div class="property-name">Badamshake</div>
+                    <div class="property-address">VASAVI ENGINEERING COLLEGE CAMPUS</div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="rent-container col-6">
+                        <div class="rent">Rs 60.00/-</div>
+                        <div class="rent-unit">per glass</div>
+                    </div>
+                    <div class="button-container col-6">
+                        <a href="{{url_for('juice20')}}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="page-container footer-container">
+            <div class="footer-cities">
+                <div class="footer-city">
+                    <a href="{{url_for('property_list2_after_login')}}">Vasavi Tiffins</a>
+                </div>
+                <div class="footer-city">
+                    <a href="{{url_for('property_list1_after_login')}}">Vasavi Food Court</a>
+                </div>
+                <div class="footer-city">
+                    <a href="{{url_for('property_list3_after_login')}}">Fruit Juice And Milk Shakes</a>
+                </div>
+                <div class="footer-city">
+                    <a href="{{url_for('property_list4_after_login')}}">Tea And Snacks</a>
+                </div>
+                <div class="footer-city">
+                    <a href="{{url_for('property_list5_after_login')}}">Pizzas And Bakery</a>
+                </div>
+            </div>
+            <div class="footer-copyright">© 2023 Copyright vasavi Food Canteen </div>
+        </div>
+    </div>
+
+    <script src="filter1.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+
+</html>
